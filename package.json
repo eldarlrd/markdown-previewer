@@ -9,6 +9,8 @@
     "react-scripts": "5.0.1",
     "react-markdown": "^8.0.3",
     "remark-gfm": "^3.0.1",
+    "remark-emoji": "^3.0.2",
+    "react-syntax-highlighter": "^15.5.0",
     "sass": "^1.56.1",
     "gh-pages": "^4.0.0"
   },
