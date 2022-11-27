@@ -6,26 +6,56 @@ import emoji from "remark-emoji";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkCold } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "./App.scss";
-
-export default function App() {
+// URLs
+const testIcon = "https://upload.wikimedia.org/wikipedia/commons/0/02/CD_icon_test.svg"
+const githubURL = "https://github.com/eldarlrd";
 // Preview Text
+export default function App() {
   const placeholder =
 `# This is an H1 Header Element.
 
 ## This is an H2 Subheader Element.
-
-[This is a Link.](https://www.github.com "GitHub")
+---
+[This is a Link.](${githubURL} "eldarlrd's GitHub")
 
 \`This is Inline Code.\`
 
 ~~~js
-  const s = "ds";
-  alert(s);
+// Code Block
+var i = "test";
+console.log(i);
 ~~~
 
-~strike~
+| Table | Header |
+| ----- | ------ |
+| First | Second |
+| Third | Fourth |
 
-:+1:`
+![Test Icon](${testIcon})
+
+> "A Block Quote,  
+it's multiline."
+---
+- [X] Checked Item
+- [ ] Unchecked Item
+
+1. Ordered Item
+2. Ordered Item
+
+- Unordered Item
+  - Indented Item
+---
+*Italic Text.*
+
+**Bold Text.**
+
+~Strikethrough Text.~
+
+Emoji :+1:
+
+Text with a Footnote.[^1]
+
+[^1]: This is the Footnote.`
 // Text Setter
   const [ text, setText ] = useState(placeholder)
   const handleChange = (content) => setText(content.target.value);
