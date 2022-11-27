@@ -61,16 +61,16 @@ Text with a Footnote.[^1]
   const handleChange = (content) => setText(content.target.value);
 // Render
   return (
-    <>
+    <div id="container">
       <textarea
         id="editor"
-        cols={30}
-        rows={25}
+        cols={35}
+        rows={20}
         value={text}
         onChange={handleChange}
-        />
+      />
+      <div id="preview">
       <ReactMarkdown
-        id="preview"
         children={text}
         remarkPlugins={[remarkGfm, emoji]}
         components={{
@@ -90,6 +90,7 @@ Text with a Footnote.[^1]
           }
         }}
       />
-    </>
+      </div>
+    </div>
   );
 };
