@@ -1,3 +1,113 @@
+// Variables
+$window-color: ivory;
+$bar-color: darkslategray;
+$border: 2px solid $bar-color;
+// Window Style
+html {
+  scroll-behavior: smooth;
+  font-family: Arial, sans-serif;
+  background-color: aliceblue;
+}
+
 #container {
   display: flex;
+  justify-content: center;
+  padding: 2rem 10px 1rem 10px;
+}
+
+#editor {
+  resize: vertical;
+  padding: 10px;
+  margin-right: 3rem;
+  border: $border;
+  background-color: $window-color;
+}
+
+#preview {
+  width: 44rem;
+  padding: 0 10px;
+  border: $border;
+  background-color: $window-color;
+}
+// Bar Style
+#topBar, #editorBar, #previewBar {
+  visibility: hidden;
+  position: absolute;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-weight: bold;
+}
+
+#topBar {
+  visibility: visible;
+  color: $bar-color;
+  top: 10px;
+}
+
+#topBar > a {
+  color: $bar-color;
+  font-style: italic;
+}
+
+#topBar > a:hover {
+  color: lighten($bar-color, 16);
+}
+
+#editorBar {
+  @extend #editor;
+  height: 12px;
+}
+
+#previewBar {
+  @extend #preview;
+  height: 2rem;
+}
+// Responsive Style
+@media only screen and (max-width: 880px) {
+  #container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #editorBar, #previewBar {
+    visibility: visible;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: -1px !important;
+    background-color: $bar-color;
+    color: snow;
+    gap: 5px;
+  }
+
+  #editor {
+    width: 32rem;
+    margin-left: 3rem;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 744px) {
+  #preview {
+    width: 36rem;
+  }
+}
+
+@media only screen and (max-width: 614px) {
+  #editor {
+    width: 26rem;
+  }
+
+  #preview {
+    width: 28rem;
+  }
+}
+
+@media only screen and (max-width: 496px) {
+  #editor {
+    width: 18rem;
+  }
+
+  #preview {
+    width: 20rem;
+  }
 }

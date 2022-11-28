@@ -5,6 +5,8 @@ import remarkGfm from "remark-gfm";
 import emoji from "remark-emoji";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkCold } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenNib, faEye } from "@fortawesome/free-solid-svg-icons";
 import "./App.scss";
 // URLs
 const testIcon = "https://upload.wikimedia.org/wikipedia/commons/0/02/CD_icon_test.svg"
@@ -16,7 +18,7 @@ export default function App() {
 
 ## This is an H2 Subheader Element.
 ---
-[This is a Link.](${githubURL} "eldarlrd's GitHub")
+[This is a Link.](. "Reload")
 
 \`This is Inline Code.\`
 
@@ -62,6 +64,16 @@ Text with a Footnote.[^1]
 // Render
   return (
     <div id="container">
+      <div id="topBar">
+        Markdown Previewer by <a
+                                target="_blank"
+                                rel="noreferrer"
+                                href={githubURL}>
+                                eldarlrd</a>
+      </div>
+      <div id="editorBar">
+        <FontAwesomeIcon icon={faPenNib} /> Editor
+      </div>
       <textarea
         id="editor"
         cols={35}
@@ -69,6 +81,9 @@ Text with a Footnote.[^1]
         value={text}
         onChange={handleChange}
       />
+      <div id="previewBar">
+        <FontAwesomeIcon icon={faEye} /> Preview
+      </div>
       <div id="preview">
       <ReactMarkdown
         children={text}
