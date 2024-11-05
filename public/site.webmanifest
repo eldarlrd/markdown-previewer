@@ -1,0 +1,24 @@
+{
+  "name": "Markdown Previewer",
+  "short_name": "Markdown Previewer",
+  "dir": "ltr",
+  "lang": "en",
+  "categories": [
+    "productivity",
+    "utilities"
+  ],
+  "display": "fullscreen",
+  "orientation": "natural",
+  "theme_color": "#2f4f4f",
+  "background_color": "#f0f8ff",
+  "description": "A Markdown Previewer",
+  "start_url": "https://eldarlrd.github.io/markdown-previewer/",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}

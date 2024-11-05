@@ -1,46 +1,83 @@
 {
   "name": "markdown-previewer",
-  "version": "1.0.0",
   "private": true,
+  "version": "1.1.0",
+  "type": "module",
+  "keywords": [
+    "markdown",
+    "editor"
+  ],
+  "description": "A Markdown Previewer",
+  "repository": "github:eldarlrd/markdown-previewer",
   "homepage": "https://eldarlrd.github.io/markdown-previewer",
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "react-markdown": "^8.0.3",
-    "react-syntax-highlighter": "^15.5.0",
-    "remark-gfm": "^3.0.1",
-    "remark-emoji": "^3.0.2",
-    "sass": "^1.56.1",
-    "gh-pages": "^4.0.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@fortawesome/fontawesome-svg-core": "^6.2.1",
-    "@fortawesome/free-solid-svg-icons": "^6.2.1"
-  },
+  "author": "Eldar Pashazade <eldarlrd@pm.me> (https://eldarlrd.github.io)",
+  "license": "AGPL-3.0-only",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "deployer": "pnpm build && gh-pages -b prod -m 'build(prod): deployment' -d dist",
+    "lint": "eslint src --flag unstable_ts_config",
+    "style": "stylelint 'src/**/*.{css,pcss,scss,sass,less,styl}'",
+    "pretty": "prettier '{src,__{tests,mocks,snapshots}__}/**/*.{ts,tsx}' --write",
+    "format": "pnpm lint --fix && pnpm style --fix && pnpm pretty"
   },
-  "eslintConfig": {
+  "stylelint": {
     "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "stylelint-config-standard-scss"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "rules": {
+      "scss/at-extend-no-missing-placeholder": null
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "bracketSameLine": true,
+    "trailingComma": "none",
+    "arrowParens": "avoid",
+    "experimentalTernaries": true
+  },
+  "dependencies": {
+    "@fontsource-variable/roboto-flex": "^5.1.0",
+    "@fontsource-variable/ubuntu-sans-mono": "^5.1.0",
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "modern-normalize": "^3.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^9.0.1",
+    "react-syntax-highlighter": "^15.6.1",
+    "remark-emoji": "^5.0.1",
+    "remark-gfm": "^4.0.0",
+    "sass": "^1.80.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "@vitejs/plugin-react-swc": "^3.7.1",
+    "eslint": "^9.14.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-n": "^17.12.0",
+    "eslint-plugin-no-relative-import-paths": "^1.5.5",
+    "eslint-plugin-promise": "^7.1.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "gh-pages": "^6.2.0",
+    "globals": "^15.12.0",
+    "jiti": "^2.4.0",
+    "prettier": "^3.3.3",
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "typescript": "~5.6.3",
+    "typescript-eslint": "^8.12.2",
+    "vite": "^5.4.10"
   }
 }

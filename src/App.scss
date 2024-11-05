@@ -1,113 +1,126 @@
-// Variables
-$window-color: ivory;
-$bar-color: darkslategray;
-$border: 2px solid $bar-color;
-// Window Style
-html {
+@use 'sass:color';
+
+$main-bg: aliceblue;
+$window-bg: ivory;
+$bar-fg: snow;
+$bar-bg: darkslategray;
+$border: .125rem solid $bar-bg;
+$code-fg: #3c526d;
+$code-bg: #e3eaf2;
+
+:root {
+  min-height: 100dvh;
+  background: $main-bg;
   scroll-behavior: smooth;
-  font-family: Arial, sans-serif;
-  background-color: aliceblue;
+  accent-color: $bar-bg;
+  font-family: 'Roboto Flex Variable', sans-serif;
 }
 
-#container {
+::selection {
+  color: $bar-fg;
+  background: $bar-bg;
+}
+
+#root {
+  gap: 1rem;
   display: flex;
+  padding: 1rem 0;
+  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  padding: 2rem 10px 1rem 10px;
+}
+
+header {
+  gap: .125rem;
+  color: $bar-bg;
+  display: inherit;
+  font-weight: bold;
+  user-select: none;
+  align-items: center;
+  flex-direction: column;
+  
+  & a {
+    color: $bar-bg;
+    font-style: italic;
+    
+    &:hover {
+      color: color.adjust($bar-bg, $lightness: 16%);
+    }
+  }
+}
+
+main {
+  gap: 2rem;
+  width: 100%;
+  flex-wrap: wrap;
+  display: inherit;
+  padding: 0 .5rem;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: inherit;
+  max-width: 46rem;
+  flex-direction: column;
+  background: $window-bg;
+  border-radius: .25rem;
+  border: $border;
+
+  & .title-bar {
+    color: $bar-fg;
+    padding: .625rem;
+    font-weight: 600;
+    user-select: none;
+    background: $bar-bg;
+  }
 }
 
 #editor {
-  resize: vertical;
-  padding: 10px;
-  margin-right: 3rem;
+  max-width: 23rem;
+
+  & textarea {
+    border: none;
+    resize: vertical;
+    padding: .625rem;
+    min-height: 23rem;
+    font-size: .875rem;
+    scrollbar-width: thin;
+    background: transparent;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+figure {
+  margin: 0;
+  padding: .625rem;
+  min-height: 23rem;
+}
+
+code {
+  color: $code-fg;
+  padding: .5rem 1rem;
+  background: $code-bg;
+  border-radius: .25rem;
+  font-family: 'Ubuntu Sans Mono Variable', monospace;
+}
+
+blockquote {
+  margin: 0;
+  padding: 1rem 2.5rem;
+  border-left: $border;
+
+  & p {
+    margin: 0;
+  }
+}
+
+table, th, td {
   border: $border;
-  background-color: $window-color;
-}
-
-#preview {
-  width: 44rem;
-  padding: 0 10px;
-  border: $border;
-  background-color: $window-color;
-}
-// Bar Style
-#topBar, #editorBar, #previewBar {
-  visibility: hidden;
-  position: absolute;
-  font-family: "Trebuchet MS", Arial, sans-serif;
-  font-weight: bold;
-}
-
-#topBar {
-  visibility: visible;
-  color: $bar-color;
-  top: 10px;
-}
-
-#topBar > a {
-  color: $bar-color;
-  font-style: italic;
-}
-
-#topBar > a:hover {
-  color: lighten($bar-color, 16);
-}
-
-#editorBar {
-  @extend #editor;
-  height: 12px;
-}
-
-#previewBar {
-  @extend #preview;
-  height: 2rem;
-}
-// Responsive Style
-@media only screen and (max-width: 880px) {
-  #container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #editorBar, #previewBar {
-    visibility: visible;
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-bottom: -1px !important;
-    background-color: $bar-color;
-    color: snow;
-    gap: 5px;
-  }
-
-  #editor {
-    width: 32rem;
-    margin-left: 3rem;
-    margin-bottom: 20px;
-  }
-}
-
-@media only screen and (max-width: 744px) {
-  #preview {
-    width: 36rem;
-  }
-}
-
-@media only screen and (max-width: 614px) {
-  #editor {
-    width: 26rem;
-  }
-
-  #preview {
-    width: 28rem;
-  }
-}
-
-@media only screen and (max-width: 496px) {
-  #editor {
-    width: 18rem;
-  }
-
-  #preview {
-    width: 20rem;
-  }
+  padding: .375rem .5rem;
+  border-collapse: collapse;
 }
