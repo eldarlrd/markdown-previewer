@@ -14,18 +14,16 @@ import '@/App.scss';
 const TEST_ICON =
   'https://upload.wikimedia.org/wikipedia/commons/0/02/CD_icon_test.svg';
 
-const PLACEHOLDER_TEXT = `# This is an H1 Header Element.
+const PLACEHOLDER_TEXT = `# H1 Heading Element
 
-## This is an H2 Subheader Element.
+## H2 Heading Element
 ---
-[This is a Link.](. "Reload")
-
-\`let foo = bar;\`
+\`let num = 7;\`
 
 ~~~js
 // Code Block
-var i = "test";
-console.log(i);
+const str = 'test';
+console.log(str);
 ~~~
 
 | Table | Header |
@@ -36,7 +34,7 @@ console.log(i);
 ![Test Icon](${TEST_ICON})
 
 > "A Block Quote,  
-> it's multiline."
+> can be multiline."
 ---
 - [X] Checked Item
 - [ ] Unchecked Item
@@ -47,17 +45,19 @@ console.log(i);
 - Unordered Item
   - Indented Item
 ---
-*Italic Text.*
+*Italic Text*
 
-**Bold Text.**
+**Bold Text**
 
-~Strikethrough Text.~
+~Strikethrough Text~
 
 Emoji :+1:
 
-Text with a Footnote.[^1]
+[A Link](. 'Reload')
 
-[^1]: This is the Footnote.`;
+Text with a Footnote[^1]
+
+[^1]: A Footnote`;
 
 export const App = (): ReactElement => {
   const [text, setText] = useState(PLACEHOLDER_TEXT);

@@ -99,6 +99,10 @@ figure {
   margin: 0;
   padding: .625rem;
   min-height: 23rem;
+
+  & h1 {
+    font-size: 2rem;
+  }
 }
 
 code {
